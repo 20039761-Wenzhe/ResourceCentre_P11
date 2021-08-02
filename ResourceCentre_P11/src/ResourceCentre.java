@@ -167,13 +167,20 @@ public class ResourceCentre {
 
 	//================================= Option 2 Add (CRUD - Create)=================================
 	public static Camcorder inputCamcorder() {
+		return newCamc();
+		
+	}
+
+	/**
+	 * @return
+	 */
+	private static Camcorder newCamc() {
 		String tag = Helper.readString("Enter asset tag > ");
 		String description = Helper.readString("Enter description > ");
 		int zoom = Helper.readInt("Enter optical zoom > ");
 
 		Camcorder cc= new Camcorder(tag, description, zoom);
 		return cc;
-		
 	}
 	public static void addCamcorder(ArrayList<Camcorder> camcorderList, Camcorder cc) {
 		
