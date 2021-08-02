@@ -22,7 +22,7 @@ public class ResourceCentre {
 
 			if (option == 1) {
 				// View all items
-				ResourceCentre.viewAllCamcorder(camcorderList);
+				ResourceCentre.showCamCorders(camcorderList);
 				ResourceCentre.viewAllChromebook(chromebookList);
 
 			} else if (option == 2) {
@@ -124,7 +124,7 @@ public class ResourceCentre {
 	}
 
 	//================================= Option 1 View (CRUD - Read) =================================
-	public static String retrieveAllCamcorder(ArrayList<Camcorder> camcorderList) {
+	public static String getCamCorders(ArrayList<Camcorder> camcorderList) {
 		String output = "";
 
 		for (int i = 0; i < camcorderList.size(); i++) {
@@ -136,11 +136,11 @@ public class ResourceCentre {
 		}
 		return output;
 	}
-	public static void viewAllCamcorder(ArrayList<Camcorder> camcorderList) {
+	public static void showCamCorders(ArrayList<Camcorder> camcorderList) {
 		ResourceCentre.setHeader("CAMCORDER LIST");
 		String output = String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION",
 				"AVAILABLE", "DUE DATE","OPTICAL ZOOM");
-		 output += retrieveAllCamcorder(camcorderList);	
+		 output += getCamCorders(camcorderList);	
 		System.out.println(output);
 	}
 
@@ -219,7 +219,7 @@ public class ResourceCentre {
 	}
 
 	public static void loanCamcorder(ArrayList<Camcorder> camcorderList) {
-		ResourceCentre.viewAllCamcorder(camcorderList);
+		ResourceCentre.showCamCorders(camcorderList);
 		String tag = Helper.readString("Enter asset tag > ");
 		String due = Helper.readString("Enter due date > ");
 		Boolean isLoaned =doLoanCamcorder(camcorderList, tag, due);
@@ -283,7 +283,7 @@ public class ResourceCentre {
 	}
 
 	public static void returnCamcorder(ArrayList<Camcorder> camcorderList) {
-		ResourceCentre.viewAllCamcorder(camcorderList);
+		ResourceCentre.showCamCorders(camcorderList);
 		String tag = Helper.readString("Enter asset tag > ");
 		Boolean isReturned = doReturnCamcorder(camcorderList, tag);
 		

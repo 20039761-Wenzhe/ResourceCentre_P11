@@ -72,7 +72,7 @@ public class ResourceCentreTest {
 		assertNotNull("Test if there is valid Camcorder arraylist to retrieve item", camcorderList);
 		
 		//test if the list of camcorders retrieved from the SourceCentre is empty - boundary
-		String allCamcorder= ResourceCentre.retrieveAllCamcorder(camcorderList);
+		String allCamcorder= ResourceCentre.getCamCorders(camcorderList);
 		String testOutput = "";
 		assertEquals("Check that ViewAllCamcorderlist", testOutput, allCamcorder);
 		
@@ -82,7 +82,7 @@ public class ResourceCentreTest {
 		assertEquals("Test that Camcorder arraylist size is 2", 2, camcorderList.size());
 		
 		//test if the expected output string same as the list of camcorders retrieved from the SourceCentre	
-		allCamcorder= ResourceCentre.retrieveAllCamcorder(camcorderList);
+		allCamcorder= ResourceCentre.getCamCorders(camcorderList);
 		testOutput = String.format("%-10s %-30s %-10s %-10s %-20s\n","CC0011", "Nikon HDSLR", "Yes", "", "40");
 		testOutput += String.format("%-10s %-30s %-10s %-10s %-20s\n","CC0012", "Sony DSC-RX100M7", "Yes", "", "20" );
 	
